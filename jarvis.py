@@ -8,6 +8,7 @@ import requests
 import time
 import random
 import pyautogui  # NEW for typing automation
+from play_game import game
 
 # Initialize TTS engine
 tts_engine = pyttsx3.init()
@@ -182,7 +183,8 @@ commands = {
     "shutdown": shutdown_assistant,
     "shut down": shutdown_assistant,
     "weather": ask_weather,
-    "news": get_news
+    "news": get_news,
+    "play game": game
 }
 
 # --- Personalized Greeting ---
