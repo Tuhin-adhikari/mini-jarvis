@@ -62,5 +62,5 @@ A fully functional **AI-powered voice assistant** built with Python — capable 
 
 ### 1️⃣ Clone this repository
 ```bash
-git clone https://github.com/<your-username>/jarvis-assistant.git
+git clone https://github.com/Tuhin-adhikari/mini-jarvis.git
 cd jarvis-assistant
