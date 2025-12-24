@@ -18,6 +18,7 @@ A fully functional **AI-powered voice assistant** built with Python — capable 
 - **News headlines**: top 10 live headlines from India via NewsAPI
 - **Memory**: remembers your name and last city for next weather requests
 - **Dictation mode**: after opening Notepad, you can dictate text to be typed automatically
+- **Games**: Game features which includes the classic rock-paper-scissors and guess the number
 
 ### 🧠 System Commands
 | Command | Action |

@@ -1,16 +1,14 @@
-def gtn_game(num : int):
+def gtn_game(computer_choice: int, user_choice : int):
     """
     Play Guess the number with the user.
     """
     
-    if num < 1 or num > 100:
+    if user_choice < 1 or user_choice > 100:
         return "Please choose a number between 1 and 100 to play."
-    
-    computer_choice = randint(1, 100)
-    
-    if num == computer_choice:
+        
+    if user_choice == computer_choice:
         return f"congratulations! You guessed it right. The number was {computer_choice}."
-    elif num < computer_choice:
-        return f"Your guess {num} is low!. Increase the guess value"
+    elif user_choice < computer_choice:
+        return f"Your guess {user_choice} is low!. Increase the guess value"
     else:
-        return f"Your guess {num} is high!. Decrease the guess value"
+        return f"Your guess {user_choice} is high!. Decrease the guess value"

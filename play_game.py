@@ -28,15 +28,19 @@ def game():
     elif "guess" in user_choice or "number" in user_choice:
         from gtn import gtn_game
         speak("Awesome! Let's play Guess the Number. Please guess a number between 1 and 100.")
+        computer_number = random.randint(1, 100)
+        count_guess = 0
         while True:
             speak("Enter you're number in the console.")
             user_number_text = input("Your guess: ")
             try:
                 user_number = int(user_number_text)
-                result = gtn_game(user_number)
+                result = gtn_game(computer_number, user_number)
                 speak(result)
                 if "congratulations" in result:
+                    speak(f"You guessed the number in {count_guess + 1} attempts. Well done!")
                     break
+                count_guess += 1
             except ValueError:
                 speak("That doesn't seem to be a valid number. Please try again.")
     else:
