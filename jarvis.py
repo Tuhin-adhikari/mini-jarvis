@@ -1,5 +1,3 @@
-import speech_recognition as sr
-import pyttsx3
 import subprocess as sb
 import webbrowser as wb
 import os
@@ -9,13 +7,7 @@ import time
 import random
 import pyautogui  # NEW for typing automation
 from play_game import game
-
-# Initialize TTS engine
-tts_engine = pyttsx3.init()
-voices = tts_engine.getProperty('voices')
-tts_engine.setProperty('voice', voices[1].id)  # female voice (system dependent)
-tts_engine.setProperty('rate', 200)  # faster speech
-tts_engine.setProperty('volume', 1.0)  # max volume
+from utils import speak, recognize
 
 Weather_api = "e04dc12a2a81caad7be088998bd2598a"
 News_api = "38ed8652716e48d8bed0ec99aa933afc"
@@ -27,32 +19,6 @@ memory = {
     "last_command": None,
     "dictation_mode": False
 }
-
-def speak(text):
-    print("Jarvis:", text)
-    tts_engine.say(text)
-    tts_engine.runAndWait()
-
-# Recognizer
-recognizer = sr.Recognizer()
-
-def recognize(timeout=10, phrase_time_limit=None):
-    with sr.Microphone() as source:
-        recognizer.adjust_for_ambient_noise(source)
-        print("Listening...")
-        try:
-            audio = recognizer.listen(source, timeout=timeout, phrase_time_limit=phrase_time_limit)
-            text = recognizer.recognize_google(audio)
-            print(f"You said: {text}")
-            return text.lower()
-        except sr.WaitTimeoutError:
-            return ""
-        except sr.UnknownValueError:
-            speak("Sorry, I did not catch that.")
-            return ""
-        except sr.RequestError:
-            speak("Could not request results from Google.")
-            return ""
 
 # --- Command Functions ---
 def open_notepad():

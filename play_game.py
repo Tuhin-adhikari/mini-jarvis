@@ -1,14 +1,5 @@
-import speech_recognition as sr
-import pyttsx3
-from jarvis import recognize
-
-tts_engine = pyttsx3.init()
-voices = tts_engine.getProperty('voices')
-tts_engine.setProperty('voice', voices[1].id)  #Female Voices
-tts_engine.setProperty('rate', 200)  # Faster Speech
-tts_engine.setProperty('volume', 1.0)  # Max Volume
-
-
+from utils import speak, recognize
+import random
 
 def game():
     """
